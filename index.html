@@ -241,80 +241,31 @@ h2 i{width:8px;height:8px;border:1.5px solid var(--red);transform:rotate(45deg);
 .p6{width:15%;left:3%;top:42%;--r:-6deg;animation-delay:-.5s}
 @media (max-width:380px){.p5,.p6{display:none}.shops-title{padding:0 56px}}
 
-/* ===== Carte code promo CLARK ===== */
-.promo{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:14px;padding:16px;border-radius:22px;
-  background:radial-gradient(90% 70% at 100% 0%,rgba(255,46,62,.26),transparent 60%),radial-gradient(70% 60% at 0% 100%,rgba(120,10,22,.45),transparent 70%),linear-gradient(160deg,#171b28,#0c0f17);
-  border:1px solid rgba(255,46,62,.45);box-shadow:0 0 0 6px rgba(255,46,62,.06),0 18px 40px rgba(0,0,0,.5)}
-.promo>*{position:relative;z-index:1}
-.promo::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.14;
-  background-image:radial-gradient(rgba(255,255,255,.9) 1px,transparent 1.4px);background-size:14px 14px;-webkit-mask-image:linear-gradient(200deg,#000,transparent 50%);mask-image:linear-gradient(200deg,#000,transparent 50%)}
-.promo::before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;z-index:3;pointer-events:none;background:linear-gradient(100deg,transparent,rgba(255,255,255,.08),transparent);animation:sheen 5s ease-in-out 4s infinite}
-.promo-hero .live{margin-left:auto;align-self:flex-start}
-.live{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:999px;
-  color:#ffd0d4;background:rgba(255,46,62,.14);border:1px solid rgba(255,46,62,.45)}
-.live i{width:6px;height:6px;border-radius:50%;background:var(--red);animation:ping 1.8s ease-out infinite}
-@keyframes ping{0%{box-shadow:0 0 0 0 rgba(255,46,62,.7)}80%,100%{box-shadow:0 0 0 7px rgba(255,46,62,0)}}
-
-.promo-hero{display:flex;align-items:center;gap:12px}
-.truck{position:relative;width:52px;height:52px;flex:none;border-radius:16px;overflow:hidden;display:grid;place-items:center;
-  background:linear-gradient(160deg,#ff3b4a,#9a0e1b);border:1px solid rgba(255,255,255,.22);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 8px 18px rgba(0,0,0,.45),0 0 18px rgba(255,46,62,.35)}
-.truck svg{width:31px;height:31px;position:relative;left:3px;animation:rumble .45s ease-in-out infinite}
-@keyframes rumble{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.2px)}}
-.truck i{position:absolute;left:0;height:2px;border-radius:2px;background:rgba(255,255,255,.75);animation:speed 1s linear infinite}
-.truck i:nth-child(1){top:17px;width:11px}
-.truck i:nth-child(2){top:25px;width:7px;animation-delay:-.35s}
-.truck i:nth-child(3){top:33px;width:10px;animation-delay:-.7s}
-@keyframes speed{0%{transform:translateX(26px);opacity:0}25%{opacity:1}100%{transform:translateX(-14px);opacity:0}}
-.truck::after{content:"";position:absolute;left:6px;right:6px;bottom:7px;height:1.5px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.55) 0 6px,transparent 6px 11px);animation:road .5s linear infinite}
-@keyframes road{to{background-position:-11px 0}}
-
-.promo-val{position:relative}
-.promo-val strong{display:block;font-family:var(--display);font-weight:900;font-style:italic;font-size:42px;line-height:.9;letter-spacing:-.02em;padding-right:4px;
-  background:linear-gradient(100deg,#fff 0%,#fff 38%,#ff9aa3 50%,#fff 62%,#fff 100%) 0 0/250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 3px 0 #000) drop-shadow(0 0 14px rgba(255,46,62,.55));animation:shine 3.8s ease-in-out infinite}
-@keyframes shine{0%{background-position:100% 0}60%,100%{background-position:0% 0}}
-.promo-val span{display:block;margin-top:5px;font-size:13px;font-weight:500;color:#e7dfe2}
-.spark{position:absolute;width:12px;height:12px;color:#fff;animation:twinkle 2.4s ease-in-out infinite}
-.spark.s1{top:-8px;right:-14px}
-.spark.s2{top:22px;right:-24px;width:8px;height:8px;color:#ff8a93;animation-delay:-1.2s}
-@keyframes twinkle{0%,100%{opacity:0;transform:scale(.4) rotate(0)}50%{opacity:1;transform:scale(1) rotate(90deg)}}
-
-.coupon{display:flex;align-items:center;gap:12px;width:100%;padding:10px 14px 10px 22px;border:0;border-radius:14px;cursor:pointer;font:inherit;text-align:left;
-  color:#2a0408;background:#fff6ec;box-shadow:0 10px 22px rgba(0,0,0,.35);-webkit-tap-highlight-color:transparent;animation:hover 3.6s ease-in-out infinite;
-  -webkit-mask:radial-gradient(circle 9px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 9px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat;
-  mask:radial-gradient(circle 9px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 9px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat}
-@keyframes hover{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-.coupon::before{content:"";position:absolute;inset:6px 14px;border:1.5px dashed rgba(224,31,47,.35);border-radius:8px;pointer-events:none}
-.coupon::after{content:"";position:absolute;top:0;left:-50%;width:30%;height:100%;pointer-events:none;background:linear-gradient(100deg,transparent,rgba(255,255,255,.85),transparent);animation:sheen 3.6s ease-in-out 2s infinite}
-.coupon:active{transform:scale(.98)}
-.coupon:focus-visible{outline:2px solid #fff;outline-offset:3px}
-.c-txt{flex:1;min-width:0}
-.c-txt span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#7a3a40}
-.c-txt strong{display:inline-block;font-family:var(--display);font-weight:900;font-size:34px;line-height:1;letter-spacing:.08em;color:#e01f2f}
-.coupon.copied .c-txt strong{animation:pop .45s cubic-bezier(.2,1.6,.4,1)}
-@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
-.c-btn{flex:none;display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:10px;background:var(--red);color:#fff;font-weight:700;font-size:14px;
-  animation:ring 2.2s ease-out infinite;transition:background .25s}
-.c-btn svg{width:15px;height:15px}
-.c-btn .ok{display:none}
+/* ===== Autocollant code CLARK (coin de la carte LoveGoBuy) ===== */
 @keyframes ring{0%{box-shadow:0 0 0 0 rgba(255,46,62,.5)}70%,100%{box-shadow:0 0 0 9px rgba(255,46,62,0)}}
-.coupon.copied .c-btn{background:#1f9d55;animation:none}
-.coupon.copied .c-btn .cp{display:none}.coupon.copied .c-btn .ok{display:block}
-
-.how{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px}
-.how>span{display:flex;align-items:center;gap:8px;font-size:13px;line-height:1.25;color:#e7dfe2}
-.how b{color:#fff}
-.how em{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-family:var(--mono);font-size:11px;color:#fff;
-  background:linear-gradient(160deg,#ff3b4a,#9a0e1b);box-shadow:0 0 0 3px rgba(255,46,62,.15)}
-.how svg{width:18px;height:18px;color:var(--red);animation:nudge 1.4s ease-in-out infinite}
-@keyframes nudge{0%,100%{transform:translateX(-2px);opacity:.5}50%{transform:translateX(2px);opacity:1}}
-.promo-note{margin:0;font-size:12px;color:var(--muted);text-align:center;text-wrap:balance}
-@media (max-width:359px){.truck{display:none}.coupon{flex-direction:column;align-items:stretch;gap:10px;padding:14px 22px 16px;text-align:center}.c-btn{justify-content:center}}
-.confetti{position:absolute;z-index:4;width:7px;height:10px;border-radius:2px;pointer-events:none;animation:burst .9s cubic-bezier(.15,.7,.3,1) forwards}
+.confetti{position:absolute;z-index:60;width:7px;height:10px;border-radius:2px;pointer-events:none;animation:burst .9s cubic-bezier(.15,.7,.3,1) forwards}
 @keyframes burst{0%{transform:translate(0,0) rotate(0);opacity:1}100%{transform:translate(var(--x),var(--y)) rotate(var(--rot));opacity:0}}
-.js:not(.settled) .promo,.js:not(.settled) .promo *,.js:not(.settled) .promo::before,.js:not(.settled) .promo *::before,.js:not(.settled) .promo *::after{animation-play-state:paused}
-@media (prefers-reduced-motion:reduce){.promo::before,.promo *,.promo *::before,.promo *::after{animation:none!important}}
-
+.js:not(.settled) .sticker,.js:not(.settled) .sticker *{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.sticker,.sticker *{animation:none!important}}
+.copyable .ok{display:none}.copyable.copied .cp{display:none}.copyable.copied .ok{display:block}
+.copyable:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.cbtn{flex:none;display:grid;place-items:center;color:#fff;background:var(--red);animation:ring 2.2s ease-out infinite;transition:background .25s}
+.cbtn svg{width:15px;height:15px}
+.copyable.copied .cbtn{background:#1f9d55;animation:none}
+.feature-wrap{position:relative}
+.feature-wrap .feature .pill{display:none}
+.sticker{position:absolute;z-index:5;top:-24px;right:-6px;display:flex;align-items:center;gap:10px;padding:7px 8px 7px 13px;border:2px solid #fff;border-radius:14px;
+  font:inherit;text-align:left;cursor:pointer;color:#2a1404;background:linear-gradient(135deg,#fff1c7 0%,#f3c86e 45%,#d99a3a 100%);-webkit-tap-highlight-color:transparent;overflow:hidden;
+  box-shadow:0 12px 24px rgba(0,0,0,.5),0 0 0 1px rgba(0,0,0,.08);--r:5deg;transform:rotate(var(--r));animation:float 3.4s ease-in-out infinite}
+.sticker::before{content:"";position:absolute;inset:3px;border:1.2px dashed rgba(90,45,5,.45);border-radius:10px;pointer-events:none}
+.sticker::after{content:"";position:absolute;top:0;left:-60%;width:35%;height:100%;pointer-events:none;background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);animation:sheen 3.8s ease-in-out 2.5s infinite}
+.sticker .s-txt,.sticker .cbtn{position:relative;z-index:1}
+.sticker .s-txt{display:flex;flex-direction:column;line-height:1}
+.sticker small{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:#7a4a12}
+.sticker b{font-family:var(--display);font-weight:900;font-size:21px;letter-spacing:.06em;color:#1a0b02;margin:2px 0 3px;text-shadow:0 1px 0 rgba(255,255,255,.45)}
+.sticker em{font-style:normal;font-size:10.5px;font-weight:700;color:#5a2d05}
+.sticker .cbtn{width:30px;height:30px;border-radius:50%}
+@media (max-width:379px){.sticker{top:-38px;padding:6px 7px 6px 11px;gap:8px}.sticker b{font-size:18px}.sticker em{font-size:9.5px}.sticker .cbtn{width:26px;height:26px}}
 footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase}
 
 @media (prefers-reduced-motion:reduce){.prod,.ticket,.tuto-img{animation:none!important}.intro{display:none}.js .rise{opacity:1;transform:none}.feature::before,.socials a,.socials a svg{animation:none!important}*{transition:none!important}}
@@ -366,6 +317,7 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
 
   <section class="rise d4">
     <h2><i></i>Mon agent</h2>
+    <div class="feature-wrap">
     <a class="feature" data-umami-event="Inscription LoveGoBuy" href="https://m.lovegobuy.com/login/signup/?invite_code=U55333" target="_blank" rel="noopener">
       <div class="feature-top">
         <span class="logo" role="img" aria-label="Logo LoveGoBuy"></span>
@@ -374,36 +326,14 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
       </div>
       <div class="tickets">
         <div class="ticket t1"><strong>561 $</strong><span>de coupons offerts</span></div>
-        <div class="ticket t2"><strong>+30%</strong><span>en bonus</span></div>
+        <div class="ticket t2"><strong>-30%</strong><span>coupon bonus</span></div>
       </div>
       <span class="cta">Inscris-toi ici</span>
     </a>
-  </section>
-
-  <section class="rise d5">
-    <h2><i></i>Mon code promo</h2>
-    <div class="promo" id="promo">
-      <div class="promo-hero">
-        <span class="truck" aria-hidden="true"><i></i><i></i><i></i>
-          <svg viewBox="0 0 32 32" fill="none"><path d="M3 9.5h15.5v11H3z" fill="#fff"/><path d="M18.5 13h5.2l4.3 4.6v2.9h-9.5z" fill="#fff"/><path d="M20.6 14.8h2.6l2.4 2.6h-5z" fill="#c4111f"/><circle cx="8" cy="22.2" r="2.6" fill="#1a0306" stroke="#fff" stroke-width="1.6"/><circle cx="23" cy="22.2" r="2.6" fill="#1a0306" stroke="#fff" stroke-width="1.6"/><path d="M6.5 13.5h8M6.5 16.5h5" stroke="#c4111f" stroke-width="1.6" stroke-linecap="round"/></svg>
-        </span>
-        <div class="promo-val">
-          <strong>-20%</strong><span>sur la livraison</span>
-          <svg class="spark s1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg>
-          <svg class="spark s2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg>
-        </div>
-        <span class="live"><i></i>Chaque mois</span>
-      </div>
-      <button class="coupon" id="copy-code" type="button" data-code="CLARK" data-umami-event="Copie code CLARK" aria-label="Copier le code CLARK">
-        <span class="c-txt"><span>Mon code</span><strong>CLARK</strong></span>
-        <span class="c-btn"><svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg><svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="c-lbl" aria-live="polite">Copier</span></span>
-      </button>
-      <div class="how">
-        <span><em>1</em><span>Copie <b>CLARK</b></span></span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-        <span><em>2</em><span>Colle-le dans <b>Coupons</b></span></span>
-      </div>
-      <p class="promo-note">1 fois par mois, pour les inscrits via mon lien LoveGoBuy.</p>
+    <button class="sticker copyable" type="button" data-code="CLARK" data-umami-event="Copie code CLARK" aria-label="Copier le code CLARK : -20 % sur la livraison, chaque mois">
+      <span class="s-txt"><small>Mon code</small><b>CLARK</b><em>-20% livraison · /mois</em></span>
+      <span class="cbtn"><svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg><svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+    </button>
     </div>
   </section>
 
@@ -459,34 +389,27 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
   setTimeout(reveal,5500);  // filet de sécurité
 })();
 </script>
+
 <script>
 (function(){
-  var b=document.getElementById('copy-code'),card=document.getElementById('promo');if(!b)return;
-  var label=b.querySelector('.c-lbl'),code=b.getAttribute('data-code'),t;
   var calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function fallback(){var ta=document.createElement('textarea');ta.value=code;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(ta)}
-  function burst(){
-    if(calm)return;
-    var cr=card.getBoundingClientRect(),br=b.querySelector('.c-btn').getBoundingClientRect();
-    var x0=br.left+br.width/2-cr.left,y0=br.top+br.height/2-cr.top,cols=['#ff2e3e','#fff','#ffd0d4','#e9b863','#ff8a93'];
-    for(var i=0;i<22;i++){
-      var c=document.createElement('i'),a=Math.random()*Math.PI*2,d=50+Math.random()*70;
-      c.className='confetti';c.style.left=x0+'px';c.style.top=y0+'px';c.style.background=cols[i%cols.length];
-      c.style.setProperty('--x',Math.cos(a)*d+'px');c.style.setProperty('--y',(Math.sin(a)*d-30)+'px');c.style.setProperty('--rot',(Math.random()*720-360)+'deg');
-      card.appendChild(c);setTimeout(function(n){return function(){n.remove()}}(c),950);
-    }
+  function fallback(code){var ta=document.createElement('textarea');ta.value=code;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(ta)}
+  function burst(b){
+    if(calm)return;var br=b.querySelector('.cbtn').getBoundingClientRect();
+    var x0=br.left+br.width/2,y0=br.top+br.height/2,cols=['#ff2e3e','#fff','#ffd0d4','#e9b863','#ff8a93'];
+    for(var i=0;i<16;i++){var c=document.createElement('i'),a=Math.random()*Math.PI*2,d=34+Math.random()*46;
+      c.className='confetti';c.style.position='fixed';c.style.left=x0+'px';c.style.top=y0+'px';c.style.background=cols[i%cols.length];
+      c.style.setProperty('--x',Math.cos(a)*d+'px');c.style.setProperty('--y',(Math.sin(a)*d-20)+'px');c.style.setProperty('--rot',(Math.random()*720-360)+'deg');
+      document.body.appendChild(c);setTimeout(function(n){return function(){n.remove()}}(c),950)}
   }
-  function done(){
-    b.classList.remove('copied');void b.offsetWidth;b.classList.add('copied');label.textContent='Copié !';
-    burst();if(navigator.vibrate)try{navigator.vibrate(15)}catch(e){}
-    clearTimeout(t);t=setTimeout(function(){b.classList.remove('copied');label.textContent='Copier'},2200);
-  }
-  b.addEventListener('click',function(){
-    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(code).then(done,function(){fallback();done()})}
-    else{fallback();done()}
+  document.querySelectorAll('.copyable').forEach(function(b){
+    var code=b.getAttribute('data-code'),t;
+    function done(){b.classList.add('copied');burst(b);if(navigator.vibrate)try{navigator.vibrate(15)}catch(e){}clearTimeout(t);t=setTimeout(function(){b.classList.remove('copied')},2000)}
+    b.addEventListener('click',function(){
+      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(code).then(done,function(){fallback(code);done()})}else{fallback(code);done()}
+    });
   });
 })();
 </script>
-
 </body>
 </html>
