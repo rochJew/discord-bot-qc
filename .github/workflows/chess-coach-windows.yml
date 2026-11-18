@@ -21,6 +21,8 @@ jobs:
       - name: Dépendances
         run: pip install -r requirements-dev.txt
       - name: Télécharger Stockfish (teste aussi le téléchargeur intégré)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: python -c "from coach.stockfish_dl import download_stockfish; import shutil; p=download_stockfish(); shutil.copy(p, 'stockfish.exe'); print(p)"
       - name: Tests
         env:
