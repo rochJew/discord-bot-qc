@@ -41,24 +41,41 @@ def _rank(name: str, avx2: bool) -> int | None:
     return order.index(variant) if variant in order else None
 
 
-def _release_assets(avx2: bool) -> list[str]:
-    """URLs des fichiers de la dernière release, triés du plus adapté au moins adapté."""
+def _api(url: str):
     import json
     headers = {"User-Agent": "ChessCoach/1.0", "Accept": "application/vnd.github+json"}
     if os.environ.get("GITHUB_TOKEN"):
         headers["Authorization"] = "Bearer " + os.environ["GITHUB_TOKEN"]
-    req = urllib.request.Request(API, headers=headers)
+    req = urllib.request.Request(url, headers=headers)
     with urllib.request.urlopen(req, timeout=30) as r:
-        data = json.loads(r.read().decode("utf-8"))
-    ranked = []
-    for a in data.get("assets", []):
-        k = _rank(a.get("name", ""), avx2)
-        if k is not None:
-            ranked.append((k, a["browser_download_url"]))
-    return [u for _, u in sorted(ranked)]
+        return json.loads(r.read().decode("utf-8"))
+
+
+def _release_assets(avx2: bool) -> list[str]:
+    """URLs des fichiers adaptés à ce PC : dernière version stable, sinon releases récentes."""
+    releases = []
+    try:
+        releases.append(_api(API))
+    except Exception:  # noqa: BLE001
+        pass
+    try:
+        rels = _api(API.rsplit("/", 1)[0] + "?per_page=15")
+        releases += sorted(rels, key=lambda r: bool(r.get("prerelease")))  # stables d'abord
+    except Exception:  # noqa: BLE001
+        pass
+    for rel in releases:
+        ranked = []
+        for a in rel.get("assets", []):
+            k = _rank(a.get("name", ""), avx2)
+            if k is not None:
+                ranked.append((k, a["browser_download_url"]))
+        if ranked:
+            return [u for _, u in sorted(ranked)]
+    return []
 
 
 def _assets() -> list[str]:
+    """Noms de fichiers connus (repli si l'API GitHub est inaccessible)."""
     if sys.platform.startswith("win"):
         return ["stockfish-windows-x86-64-avx2.zip", "stockfish-windows-x86-64.zip"]
     if sys.platform == "darwin":
@@ -96,7 +113,7 @@ def download_stockfish(progress=None) -> str:
                 return str(exe)
             last_err = RuntimeError(f"{url} ne démarre pas sur ce PC")
         except Exception as exc:  # noqa: BLE001
-            last_err = exc
+            last_err = f"{url.rsplit('/', 1)[-1]} : {exc}"
     raise RuntimeError(f"Téléchargement de Stockfish impossible : {last_err}")
 
 

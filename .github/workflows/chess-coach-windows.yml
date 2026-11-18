@@ -20,6 +20,13 @@ jobs:
           python-version: "3.12"
       - name: Dépendances
         run: pip install -r requirements-dev.txt
+      - name: Diagnostic des releases Stockfish
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/official-stockfish/Stockfish/releases/latest --jq '.tag_name, (.assets[].name)'
+          gh api "repos/official-stockfish/Stockfish/releases?per_page=5" --jq '.[] | .tag_name + " prerelease=" + (.prerelease|tostring) + " assets=" + (.assets|length|tostring)'
       - name: Télécharger Stockfish (teste aussi le téléchargeur intégré)
         env:
           GITHUB_TOKEN: ${{ github.token }}
