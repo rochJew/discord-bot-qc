@@ -75,6 +75,9 @@ body{background:var(--night);color:var(--fg);font-family:var(--body);font-size:1
 .banner .loc{position:absolute;top:14px;left:max(16px,env(safe-area-inset-left,0px));z-index:1;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
   color:#fff;background:rgba(8,11,18,.55);backdrop-filter:blur(6px);padding:5px 9px;border-radius:999px;border:1px solid rgba(255,255,255,.15)}
 .banner .loc b{color:var(--red);font-weight:500}
+/* Mention collaboration commerciale (en haut à droite) */
+.banner .collab{position:absolute;top:14px;right:max(16px,env(safe-area-inset-right,0px));z-index:1;font-family:var(--mono);font-size:9px;line-height:1.25;letter-spacing:.14em;text-transform:uppercase;text-align:center;
+  color:#fff;background:rgba(8,11,18,.6);backdrop-filter:blur(6px);padding:5px 8px;border-radius:8px;border:1px solid rgba(255,255,255,.22)}
 
 .id{text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:-78px;position:relative;z-index:1;
   padding-inline:max(16px,env(safe-area-inset-left,0px))}
@@ -238,6 +241,32 @@ h2 i{width:8px;height:8px;border:1.5px solid var(--red);transform:rotate(45deg);
 .p6{width:15%;left:3%;top:42%;--r:-6deg;animation-delay:-.5s}
 @media (max-width:380px){.p5,.p6{display:none}.shops-title{padding:0 56px}}
 
+/* Carte code promo CLARK */
+.promo{position:relative;display:flex;flex-direction:column;gap:14px;padding:16px;border-radius:20px;
+  background:radial-gradient(120% 90% at 100% 0%,rgba(255,46,62,.22),transparent 60%),var(--card);border:1px solid rgba(255,46,62,.55);box-shadow:0 14px 30px rgba(0,0,0,.45)}
+.promo::after{content:"";position:absolute;inset:4px;border-radius:16px;border:1px dashed rgba(255,46,62,.16);pointer-events:none}
+.promo-top{display:flex;align-items:center;gap:12px}
+.promo-val strong{display:block;font-family:var(--display);font-weight:900;font-style:italic;font-size:46px;line-height:.9;letter-spacing:-.02em;color:#fff;text-shadow:0 3px 0 #000,0 0 18px rgba(255,46,62,.55)}
+.promo-val span{display:block;margin-top:6px;font-size:13px;color:var(--muted)}
+.promo-top .pill{background:rgba(255,46,62,.15);border-color:rgba(255,46,62,.5);color:#ffd0d4}
+.coupon{position:relative;z-index:1;display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px 12px 22px;border:0;border-radius:14px;cursor:pointer;font:inherit;text-align:left;
+  color:#2a0408;background:#fff6ec;box-shadow:0 10px 20px rgba(0,0,0,.3);transition:transform .2s;
+  -webkit-mask:radial-gradient(circle 9px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 9px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat;
+  mask:radial-gradient(circle 9px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 9px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat}
+.coupon::before{content:"";position:absolute;inset:6px 14px;border:1.5px dashed rgba(224,31,47,.35);border-radius:8px;pointer-events:none}
+.coupon:active{transform:scale(.98)}
+.coupon:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.coupon .c-txt{flex:1;min-width:0}
+.coupon .c-txt span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+.coupon .c-txt strong{display:block;font-family:var(--display);font-weight:900;font-size:36px;line-height:1;letter-spacing:.08em;color:#e01f2f}
+.coupon .c-btn{flex:none;display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:10px;background:var(--red);color:#fff;font-weight:700;font-size:14px;box-shadow:0 4px 14px rgba(255,46,62,.4);transition:background .2s}
+.coupon.copied .c-btn{background:#1f9d55;box-shadow:0 4px 14px rgba(31,157,85,.4)}
+.steps{position:relative;z-index:1;margin:0;padding:0;list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:8px}
+.steps li{counter-increment:s;display:flex;align-items:center;gap:10px;font-size:14px}
+.steps li::before{content:counter(s);flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:12px;color:#fff;background:rgba(255,46,62,.2);border:1px solid var(--red)}
+.steps b{color:#ffd0d4}
+.promo-note{position:relative;z-index:1;margin:0;font-size:12px;color:var(--muted)}
+
 footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase}
 
 @media (prefers-reduced-motion:reduce){.prod,.ticket,.tuto-img{animation:none!important}.intro{display:none}.js .rise{opacity:1;transform:none}.feature::before,.socials a,.socials a svg{animation:none!important}*{transition:none!important}}
@@ -275,6 +304,7 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
   <header class="hero">
     <div class="banner rise d1" role="img" aria-label="Entrepôt de colis en Chine">
       <span class="loc"><b>●</b> En direct de Chine</span>
+      <span class="collab">Collaboration<br>commerciale</span>
     </div>
     <div class="id">
       <h1 class="wordmark rise d2"><span class="wm-shadow" aria-hidden="true">Clark</span><span class="wm">Clark</span></h1>
@@ -303,6 +333,26 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
   </section>
 
   <section class="rise d5">
+    <h2><i></i>Mon code promo</h2>
+    <div class="promo">
+      <div class="promo-top">
+        <div class="promo-val"><strong>-20%</strong><span>sur la livraison</span></div>
+        <span class="pill">Chaque mois</span>
+      </div>
+      <button class="coupon" id="copy-code" type="button" data-code="CLARK" data-umami-event="Copie code CLARK" aria-label="Copier le code CLARK">
+        <span class="c-txt"><span>Mon code</span><strong>CLARK</strong></span>
+        <span class="c-btn" aria-live="polite">Copier</span>
+      </button>
+      <ol class="steps">
+        <li><span>Inscris-toi avec <b>mon lien</b> juste au-dessus</span></li>
+        <li><span>Copie le code <b>CLARK</b></span></li>
+        <li><span>Dans LoveGoBuy, colle-le dans <b>Coupons</b></span></li>
+      </ol>
+      <p class="promo-note">Récupérable 1 fois par mois, réservé aux inscrits via mon lien.</p>
+    </div>
+  </section>
+
+  <section class="rise d6">
     <h2><i></i>Tuto</h2>
     <a class="tuto" data-umami-event="Tuto" href="https://vm.tiktok.com/ZN8ycLX1D/" target="_blank" rel="noopener">
       <div class="tuto-txt">
@@ -352,6 +402,18 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
   if(document.readyState==='complete') ready(); else window.addEventListener('load',ready,{once:true});
   setTimeout(start,3500);   // si le chargement traîne, on lance quand même
   setTimeout(reveal,5500);  // filet de sécurité
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('copy-code');if(!b)return;
+  var label=b.querySelector('.c-btn'),code=b.getAttribute('data-code'),t;
+  function fallback(){var ta=document.createElement('textarea');ta.value=code;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(ta)}
+  function done(){b.classList.add('copied');label.textContent='Copié ✓';clearTimeout(t);t=setTimeout(function(){b.classList.remove('copied');label.textContent='Copier'},2200)}
+  b.addEventListener('click',function(){
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(code).then(done,function(){fallback();done()})}
+    else{fallback();done()}
+  });
 })();
 </script>
 
