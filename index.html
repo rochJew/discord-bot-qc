@@ -241,31 +241,84 @@ h2 i{width:8px;height:8px;border:1.5px solid var(--red);transform:rotate(45deg);
 .p6{width:15%;left:3%;top:42%;--r:-6deg;animation-delay:-.5s}
 @media (max-width:380px){.p5,.p6{display:none}.shops-title{padding:0 56px}}
 
-/* Carte code promo CLARK */
-.promo{position:relative;display:flex;flex-direction:column;gap:14px;padding:16px;border-radius:20px;
-  background:radial-gradient(120% 90% at 100% 0%,rgba(255,46,62,.22),transparent 60%),var(--card);border:1px solid rgba(255,46,62,.55);box-shadow:0 14px 30px rgba(0,0,0,.45)}
-.promo::after{content:"";position:absolute;inset:4px;border-radius:16px;border:1px dashed rgba(255,46,62,.16);pointer-events:none}
-.promo-top{display:flex;align-items:center;gap:12px}
-.promo-val strong{display:block;font-family:var(--display);font-weight:900;font-style:italic;font-size:46px;line-height:.9;letter-spacing:-.02em;color:#fff;text-shadow:0 3px 0 #000,0 0 18px rgba(255,46,62,.55)}
-.promo-val span{display:block;margin-top:6px;font-size:13px;color:var(--muted)}
-.promo-top .pill{background:rgba(255,46,62,.15);border-color:rgba(255,46,62,.5);color:#ffd0d4}
-.coupon{position:relative;z-index:1;display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px 12px 22px;border:0;border-radius:14px;cursor:pointer;font:inherit;text-align:left;
-  color:#2a0408;background:#fff6ec;box-shadow:0 10px 20px rgba(0,0,0,.3);transition:transform .2s;
+/* ===== Carte code promo CLARK ===== */
+.promo{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:16px;padding:16px 18px 18px;border-radius:22px;
+  background:radial-gradient(90% 70% at 100% 0%,rgba(255,46,62,.26),transparent 60%),radial-gradient(70% 60% at 0% 100%,rgba(120,10,22,.45),transparent 70%),linear-gradient(160deg,#171b28,#0c0f17);
+  border:1px solid rgba(255,46,62,.45);box-shadow:0 0 0 6px rgba(255,46,62,.06),0 18px 40px rgba(0,0,0,.5)}
+.promo>*{position:relative;z-index:1}
+.promo::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.14;
+  background-image:radial-gradient(rgba(255,255,255,.9) 1px,transparent 1.4px);background-size:14px 14px;-webkit-mask-image:linear-gradient(200deg,#000,transparent 50%);mask-image:linear-gradient(200deg,#000,transparent 50%)}
+.promo::before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;z-index:3;pointer-events:none;background:linear-gradient(100deg,transparent,rgba(255,255,255,.08),transparent);animation:sheen 5s ease-in-out 4s infinite}
+.promo-bar{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.promo-bar small{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#ff8a93}
+.live{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:999px;
+  color:#ffd0d4;background:rgba(255,46,62,.14);border:1px solid rgba(255,46,62,.45)}
+.live i{width:6px;height:6px;border-radius:50%;background:var(--red);animation:ping 1.8s ease-out infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(255,46,62,.7)}80%,100%{box-shadow:0 0 0 7px rgba(255,46,62,0)}}
+
+.promo-hero{display:flex;align-items:center;gap:14px}
+.truck{position:relative;width:58px;height:58px;flex:none;border-radius:16px;overflow:hidden;display:grid;place-items:center;
+  background:linear-gradient(160deg,#ff3b4a,#9a0e1b);border:1px solid rgba(255,255,255,.22);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 8px 18px rgba(0,0,0,.45),0 0 18px rgba(255,46,62,.35)}
+.truck svg{width:34px;height:34px;position:relative;left:3px;animation:rumble .45s ease-in-out infinite}
+@keyframes rumble{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.2px)}}
+.truck i{position:absolute;left:0;height:2px;border-radius:2px;background:rgba(255,255,255,.75);animation:speed 1s linear infinite}
+.truck i:nth-child(1){top:19px;width:12px}
+.truck i:nth-child(2){top:28px;width:8px;animation-delay:-.35s}
+.truck i:nth-child(3){top:37px;width:11px;animation-delay:-.7s}
+@keyframes speed{0%{transform:translateX(26px);opacity:0}25%{opacity:1}100%{transform:translateX(-14px);opacity:0}}
+.truck::after{content:"";position:absolute;left:6px;right:6px;bottom:7px;height:1.5px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.55) 0 6px,transparent 6px 11px);animation:road .5s linear infinite}
+@keyframes road{to{background-position:-11px 0}}
+
+.promo-val{position:relative}
+.promo-val strong{display:block;font-family:var(--display);font-weight:900;font-style:italic;font-size:48px;line-height:.9;letter-spacing:-.02em;padding-right:4px;
+  background:linear-gradient(100deg,#fff 0%,#fff 38%,#ff9aa3 50%,#fff 62%,#fff 100%) 0 0/250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 3px 0 #000) drop-shadow(0 0 14px rgba(255,46,62,.55));animation:shine 3.8s ease-in-out infinite}
+@keyframes shine{0%{background-position:100% 0}60%,100%{background-position:0% 0}}
+.promo-val span{display:block;margin-top:6px;font-size:14px;font-weight:500;color:#e7dfe2}
+.spark{position:absolute;width:12px;height:12px;color:#fff;animation:twinkle 2.4s ease-in-out infinite}
+.spark.s1{top:-8px;right:-14px}
+.spark.s2{top:22px;right:-24px;width:8px;height:8px;color:#ff8a93;animation-delay:-1.2s}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.4) rotate(0)}50%{opacity:1;transform:scale(1) rotate(90deg)}}
+
+.coupon{display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px 12px 22px;border:0;border-radius:14px;cursor:pointer;font:inherit;text-align:left;
+  color:#2a0408;background:#fff6ec;box-shadow:0 10px 22px rgba(0,0,0,.35);-webkit-tap-highlight-color:transparent;animation:hover 3.6s ease-in-out infinite;
   -webkit-mask:radial-gradient(circle 9px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 9px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat;
   mask:radial-gradient(circle 9px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 9px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat}
+@keyframes hover{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
 .coupon::before{content:"";position:absolute;inset:6px 14px;border:1.5px dashed rgba(224,31,47,.35);border-radius:8px;pointer-events:none}
+.coupon::after{content:"";position:absolute;top:0;left:-50%;width:30%;height:100%;pointer-events:none;background:linear-gradient(100deg,transparent,rgba(255,255,255,.85),transparent);animation:sheen 3.6s ease-in-out 2s infinite}
 .coupon:active{transform:scale(.98)}
 .coupon:focus-visible{outline:2px solid #fff;outline-offset:3px}
-.coupon .c-txt{flex:1;min-width:0}
-.coupon .c-txt span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase}
-.coupon .c-txt strong{display:block;font-family:var(--display);font-weight:900;font-size:36px;line-height:1;letter-spacing:.08em;color:#e01f2f}
-.coupon .c-btn{flex:none;display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:10px;background:var(--red);color:#fff;font-weight:700;font-size:14px;box-shadow:0 4px 14px rgba(255,46,62,.4);transition:background .2s}
-.coupon.copied .c-btn{background:#1f9d55;box-shadow:0 4px 14px rgba(31,157,85,.4)}
-.steps{position:relative;z-index:1;margin:0;padding:0;list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:8px}
-.steps li{counter-increment:s;display:flex;align-items:center;gap:10px;font-size:14px}
-.steps li::before{content:counter(s);flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:12px;color:#fff;background:rgba(255,46,62,.2);border:1px solid var(--red)}
-.steps b{color:#ffd0d4}
-.promo-note{position:relative;z-index:1;margin:0;font-size:12px;color:var(--muted)}
+.c-txt{flex:1;min-width:0}
+.c-txt span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#7a3a40}
+.c-txt strong{display:inline-block;font-family:var(--display);font-weight:900;font-size:38px;line-height:1;letter-spacing:.08em;color:#e01f2f}
+.coupon.copied .c-txt strong{animation:pop .45s cubic-bezier(.2,1.6,.4,1)}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+.c-btn{flex:none;display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:10px;background:var(--red);color:#fff;font-weight:700;font-size:14px;
+  animation:ring 2.2s ease-out infinite;transition:background .25s}
+.c-btn svg{width:15px;height:15px}
+.c-btn .ok{display:none}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(255,46,62,.5)}70%,100%{box-shadow:0 0 0 9px rgba(255,46,62,0)}}
+.coupon.copied .c-btn{background:#1f9d55;animation:none}
+.coupon.copied .c-btn .cp{display:none}.coupon.copied .c-btn .ok{display:block}
+
+.steps{margin:0;padding:0;list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:12px}
+.steps li{counter-increment:s;position:relative;display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#e7dfe2}
+.steps li::before{content:counter(s);flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:12px;color:#fff;
+  background:linear-gradient(160deg,#ff3b4a,#9a0e1b);box-shadow:0 0 0 3px rgba(255,46,62,.15),0 0 12px rgba(255,46,62,.35)}
+.steps li>span{padding-top:4px}
+.steps li:not(:last-child)::after{content:"";position:absolute;left:13px;top:31px;bottom:-11px;width:2px;
+  background:linear-gradient(180deg,rgba(255,46,62,.8) 50%,transparent 0) 0 0/2px 5px;animation:flow .6s linear infinite}
+@keyframes flow{to{background-position:0 5px}}
+.steps b{color:#fff}
+.promo-note{display:flex;align-items:center;gap:8px;margin:0;padding:9px 12px;border-radius:12px;font-size:12px;color:var(--muted);background:rgba(0,0,0,.25);border:1px solid var(--line)}
+.promo-note svg{flex:none;width:15px;height:15px;color:#ff8a93;animation:spin 5s cubic-bezier(.6,0,.3,1) infinite}
+@keyframes spin{0%{transform:rotate(0)}25%,100%{transform:rotate(360deg)}}
+@media (max-width:359px){.coupon{flex-direction:column;align-items:stretch;gap:10px;padding:14px 22px 16px;text-align:center}.c-btn{justify-content:center}}
+.confetti{position:absolute;z-index:4;width:7px;height:10px;border-radius:2px;pointer-events:none;animation:burst .9s cubic-bezier(.15,.7,.3,1) forwards}
+@keyframes burst{0%{transform:translate(0,0) rotate(0);opacity:1}100%{transform:translate(var(--x),var(--y)) rotate(var(--rot));opacity:0}}
+.js:not(.settled) .promo,.js:not(.settled) .promo *,.js:not(.settled) .promo::before,.js:not(.settled) .promo *::before,.js:not(.settled) .promo *::after{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.promo::before,.promo *,.promo *::before,.promo *::after{animation:none!important}}
 
 footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase}
 
@@ -334,21 +387,28 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
 
   <section class="rise d5">
     <h2><i></i>Mon code promo</h2>
-    <div class="promo">
-      <div class="promo-top">
-        <div class="promo-val"><strong>-20%</strong><span>sur la livraison</span></div>
-        <span class="pill">Chaque mois</span>
+    <div class="promo" id="promo">
+      <div class="promo-bar"><small>Offre LoveGoBuy</small><span class="live"><i></i>Chaque mois</span></div>
+      <div class="promo-hero">
+        <span class="truck" aria-hidden="true"><i></i><i></i><i></i>
+          <svg viewBox="0 0 32 32" fill="none"><path d="M3 9.5h15.5v11H3z" fill="#fff"/><path d="M18.5 13h5.2l4.3 4.6v2.9h-9.5z" fill="#fff"/><path d="M20.6 14.8h2.6l2.4 2.6h-5z" fill="#c4111f"/><circle cx="8" cy="22.2" r="2.6" fill="#1a0306" stroke="#fff" stroke-width="1.6"/><circle cx="23" cy="22.2" r="2.6" fill="#1a0306" stroke="#fff" stroke-width="1.6"/><path d="M6.5 13.5h8M6.5 16.5h5" stroke="#c4111f" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        <div class="promo-val">
+          <strong>-20%</strong><span>sur la livraison</span>
+          <svg class="spark s1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg>
+          <svg class="spark s2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg>
+        </div>
       </div>
       <button class="coupon" id="copy-code" type="button" data-code="CLARK" data-umami-event="Copie code CLARK" aria-label="Copier le code CLARK">
         <span class="c-txt"><span>Mon code</span><strong>CLARK</strong></span>
-        <span class="c-btn" aria-live="polite">Copier</span>
+        <span class="c-btn"><svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg><svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="c-lbl" aria-live="polite">Copier</span></span>
       </button>
       <ol class="steps">
         <li><span>Inscris-toi avec <b>mon lien</b> juste au-dessus</span></li>
         <li><span>Copie le code <b>CLARK</b></span></li>
         <li><span>Dans LoveGoBuy, colle-le dans <b>Coupons</b></span></li>
       </ol>
-      <p class="promo-note">Récupérable 1 fois par mois, réservé aux inscrits via mon lien.</p>
+      <p class="promo-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg>Récupérable 1 fois par mois, réservé aux inscrits via mon lien.</p>
     </div>
   </section>
 
@@ -406,10 +466,26 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
 </script>
 <script>
 (function(){
-  var b=document.getElementById('copy-code');if(!b)return;
-  var label=b.querySelector('.c-btn'),code=b.getAttribute('data-code'),t;
+  var b=document.getElementById('copy-code'),card=document.getElementById('promo');if(!b)return;
+  var label=b.querySelector('.c-lbl'),code=b.getAttribute('data-code'),t;
+  var calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
   function fallback(){var ta=document.createElement('textarea');ta.value=code;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(ta)}
-  function done(){b.classList.add('copied');label.textContent='Copié ✓';clearTimeout(t);t=setTimeout(function(){b.classList.remove('copied');label.textContent='Copier'},2200)}
+  function burst(){
+    if(calm)return;
+    var cr=card.getBoundingClientRect(),br=b.querySelector('.c-btn').getBoundingClientRect();
+    var x0=br.left+br.width/2-cr.left,y0=br.top+br.height/2-cr.top,cols=['#ff2e3e','#fff','#ffd0d4','#e9b863','#ff8a93'];
+    for(var i=0;i<22;i++){
+      var c=document.createElement('i'),a=Math.random()*Math.PI*2,d=50+Math.random()*70;
+      c.className='confetti';c.style.left=x0+'px';c.style.top=y0+'px';c.style.background=cols[i%cols.length];
+      c.style.setProperty('--x',Math.cos(a)*d+'px');c.style.setProperty('--y',(Math.sin(a)*d-30)+'px');c.style.setProperty('--rot',(Math.random()*720-360)+'deg');
+      card.appendChild(c);setTimeout(function(n){return function(){n.remove()}}(c),950);
+    }
+  }
+  function done(){
+    b.classList.remove('copied');void b.offsetWidth;b.classList.add('copied');label.textContent='Copié !';
+    burst();if(navigator.vibrate)try{navigator.vibrate(15)}catch(e){}
+    clearTimeout(t);t=setTimeout(function(){b.classList.remove('copied');label.textContent='Copier'},2200);
+  }
   b.addEventListener('click',function(){
     if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(code).then(done,function(){fallback();done()})}
     else{fallback();done()}
