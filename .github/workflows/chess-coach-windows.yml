@@ -1,0 +1,44 @@
+name: Chess Coach — build Windows
+
+on:
+  push:
+    paths:
+      - "chess-coach/**"
+      - ".github/workflows/chess-coach-windows.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: chess-coach
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Dépendances
+        run: pip install -r requirements-dev.txt
+      - name: Télécharger Stockfish (teste aussi le téléchargeur intégré)
+        run: python -c "from coach.stockfish_dl import download_stockfish; import shutil; p=download_stockfish(); shutil.copy(p, 'stockfish.exe'); print(p)"
+      - name: Tests
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: python -m pytest -q tests
+      - name: Construire l'exécutable
+        run: |
+          pyinstaller --noconfirm --windowed --name ChessCoach --add-data "coach\data;coach\data" --collect-submodules coach main.py
+          copy stockfish.exe dist\ChessCoach\stockfish.exe
+      - name: Vérifier que l'exe démarre
+        shell: pwsh
+        run: |
+          $env:QT_QPA_PLATFORM = "offscreen"
+          $p = Start-Process -FilePath dist\ChessCoach\ChessCoach.exe -PassThru
+          Start-Sleep -Seconds 12
+          if ($p.HasExited) { throw "L'application s'est arrêtée au démarrage (code $($p.ExitCode))" }
+          Stop-Process -Id $p.Id
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ChessCoach-Windows
+          path: chess-coach/dist/ChessCoach
