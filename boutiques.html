@@ -49,13 +49,13 @@ img{max-width:100%}
 .head h1::after{content:"";display:block;height:3px;width:46%;margin:12px auto 0;border-radius:3px;background:linear-gradient(90deg,transparent,var(--red),transparent);box-shadow:0 0 12px var(--red)}
 
 /* Bulle Sensei */
-.sensei{display:flex;align-items:flex-end;gap:6px}
-.sensei-pic{flex:none;width:96px;align-self:flex-end;filter:drop-shadow(0 8px 14px rgba(0,0,0,.5));animation:sway 4s ease-in-out infinite;transform-origin:bottom center}
+.sensei{display:flex;align-items:center;gap:4px}
+.sensei-pic{flex:none;width:118px;height:auto;margin-left:-6px;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent);mask-image:linear-gradient(180deg,#000 72%,transparent);filter:drop-shadow(0 8px 14px rgba(0,0,0,.5));animation:sway 4s ease-in-out infinite;transform-origin:bottom center}
 @keyframes sway{0%,100%{transform:rotate(0) translateY(0)}30%{transform:rotate(-1.6deg) translateY(-3px)}65%{transform:rotate(1.2deg) translateY(-1px)}}
-.bubble{position:relative;flex:1;min-width:0;margin-bottom:22px;padding:14px 16px;border-radius:18px 18px 18px 6px;color:#16080b;
+.bubble{position:relative;flex:1;min-width:0;margin-top:-28px;padding:14px 16px;border-radius:18px;color:#16080b;
   background:radial-gradient(rgba(224,31,47,.10) 1px,transparent 1.4px) 0 0/14px 14px,#fbf7f4;box-shadow:0 14px 30px rgba(0,0,0,.45)}
-.bubble::before{content:"";position:absolute;left:-9px;bottom:0;width:18px;height:18px;background:#fbf7f4;clip-path:polygon(100% 0,100% 100%,0 100%)}
-.bubble::after{content:"";position:absolute;inset:5px;border-radius:14px 14px 14px 4px;border:1px dashed rgba(224,31,47,.25);pointer-events:none}
+.bubble::before{content:"";position:absolute;left:-10px;top:calc(50% - 10px);width:12px;height:20px;background:#fbf7f4;clip-path:polygon(100% 0,0 50%,100% 100%)}
+.bubble::after{content:"";position:absolute;inset:5px;border-radius:14px;border:1px dashed rgba(224,31,47,.25);pointer-events:none}
 .bubble b{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#e01f2f;margin-bottom:4px}
 .bubble p{margin:0;font-size:14px;line-height:1.45}
 .bubble strong{color:#e01f2f}
@@ -67,7 +67,7 @@ h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--li
 h2 i{width:8px;height:8px;border:1.5px solid var(--red);transform:rotate(45deg);box-shadow:0 0 8px var(--red)}
 .shops-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 @media (min-width:640px){.shops-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (min-width:860px){.shops-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.sensei{max-width:680px;margin:0 auto}}
+@media (min-width:860px){.shops-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.sensei{max-width:680px;margin:0 auto}.sensei-pic{width:150px}}
 .shop{position:relative;display:flex;flex-direction:column;gap:10px;padding:8px 8px 12px;border-radius:18px;text-decoration:none;color:var(--fg);
   background:var(--card);border:1px solid var(--line);transition:transform .25s,border-color .25s,box-shadow .25s;
   animation:rise .7s cubic-bezier(.16,.8,.2,1) calc(.08s * var(--i)) both}
@@ -110,7 +110,7 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
 
   <aside class="sensei" aria-label="Conseil de Sensei">
     <!-- Emplacement du personnage Sensei : remplacer assets/sensei.webp par la nouvelle illustration -->
-    <img class="sensei-pic" src="assets/sensei.webp" alt="Sensei" width="96" height="120">
+    <img class="sensei-pic" src="assets/sensei.webp" alt="Sensei" width="480" height="622">
     <div class="bubble">
       <b>Le conseil de Sensei</b>
       <p>Chaque carte t'ouvre un produit de la marque. Pour voir <strong>toute la boutique</strong>, descends sur la page LoveGoBuy et clique sur le <strong>nom de la boutique</strong>.</p>
