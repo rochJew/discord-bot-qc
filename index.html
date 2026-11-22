@@ -265,7 +265,7 @@ h2 i{width:8px;height:8px;border:1.5px solid var(--red);transform:rotate(45deg);
 .copyable.copied .cbtn{background:#1f9d55;animation:none}
 .feature-wrap{position:relative}
 .feature-wrap .feature .pill{display:none}
-.sticker{position:absolute;z-index:5;top:-24px;right:-6px;display:flex;align-items:center;gap:10px;padding:7px 8px 7px 13px;border:2px solid #fff;border-radius:14px;
+.sticker{position:absolute;z-index:5;top:-52px;right:-6px;display:flex;align-items:center;gap:10px;padding:7px 8px 7px 13px;border:2px solid #fff;border-radius:14px;
   font:inherit;text-align:left;cursor:pointer;color:#2a1404;background:linear-gradient(135deg,#fff1c7 0%,#f3c86e 45%,#d99a3a 100%);-webkit-tap-highlight-color:transparent;overflow:hidden;
   box-shadow:0 12px 24px rgba(0,0,0,.5),0 0 0 1px rgba(0,0,0,.08);--r:5deg;transform:rotate(var(--r));animation:float 3.4s ease-in-out infinite}
 .sticker::before{content:"";position:absolute;inset:3px;border:1.2px dashed rgba(90,45,5,.45);border-radius:10px;pointer-events:none}
@@ -275,8 +275,9 @@ h2 i{width:8px;height:8px;border:1.5px solid var(--red);transform:rotate(45deg);
 .sticker small{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:#7a4a12}
 .sticker b{font-family:var(--display);font-weight:900;font-size:21px;letter-spacing:.06em;color:#1a0b02;margin:2px 0 3px;text-shadow:0 1px 0 rgba(255,255,255,.45)}
 .sticker em{font-style:normal;font-size:10.5px;font-weight:700;color:#5a2d05}
+.sticker .s-note{font-style:normal;font-size:8.5px;font-weight:500;color:#7a4a12;margin-top:3px}
 .sticker .cbtn{width:30px;height:30px;border-radius:50%}
-@media (max-width:379px){.sticker{top:-38px;padding:6px 7px 6px 11px;gap:8px}.sticker b{font-size:18px}.sticker em{font-size:9.5px}.sticker .cbtn{width:26px;height:26px}}
+@media (max-width:379px){.sticker{top:-46px;padding:6px 7px 6px 11px;gap:8px}.sticker b{font-size:18px}.sticker em{font-size:9.5px}.sticker .cbtn{width:26px;height:26px}}
 footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase}
 
 @media (prefers-reduced-motion:reduce){.prod,.ticket,.tuto-img{animation:none!important}.intro{display:none}.js .rise{opacity:1;transform:none}.feature::before,.socials a,.socials a svg{animation:none!important}*{transition:none!important}}
@@ -341,8 +342,8 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
       </div>
       <span class="cta">Inscris-toi ici</span>
     </a>
-    <button class="sticker copyable" type="button" data-code="Clarck" data-umami-event="Copie code CLARK" aria-label="Copier le code Clarck : -20 % sur la livraison, chaque mois">
-      <span class="s-txt"><small>Mon code</small><b>CLARK</b><em>-20% livraison · /mois</em></span>
+    <button class="sticker copyable" type="button" data-code="Clarck" data-umami-event="Copie code CLARK" aria-label="Copier le code Clarck : -30 % sur la livraison, chaque mois, pour les inscrits via mon lien">
+      <span class="s-txt"><small>Mon code</small><b>Clarck</b><em>-30% livraison · /mois</em><i class="s-note">Pour les inscrits via mon lien</i></span>
       <span class="cbtn"><svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg><svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
     </button>
     </div>
