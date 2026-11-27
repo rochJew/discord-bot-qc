@@ -101,7 +101,7 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
    - est suivi à part dans Umami : UTM « content », tag Umami et propriété « variante » sur chaque clic.
    Le choix est gardé pendant toute la visite (y compris page Boutiques et retour). */
 (function(){
-  var VARIANTES=['compte2'];
+  var VARIANTES=['clarckirl'];
   var v=null;
   try{
     var q=new URLSearchParams(location.search).get('utm_content');
@@ -127,7 +127,7 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
   </nav>
 
   <header class="head">
-    <small>Via mon agent LoveGoBuy</small>
+    <small data-text-clarckirl="Vêtements · via mon agent LoveGoBuy">Via mon agent LoveGoBuy</small>
     <h1>Mes boutiques authentiques</h1>
   </header>
 
@@ -165,7 +165,7 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
       </a>
     </div>
   </section>
-  <section class="group">
+  <section class="group" data-hide="clarckirl">
     <h2><i></i>Tech</h2>
     <div class="shops-grid">
       <a class="shop" style="--i:4" href="https://www.lovegobuy.com/product?id=1024323151119&amp;shop_type=taobao&amp;invite_code=U55333" target="_blank" rel="noopener" data-umami-event="Boutique HUAWEI">
