@@ -304,6 +304,16 @@ h2 i{width:8px;height:8px;border:1.5px solid var(--red);transform:rotate(45deg);
 .bubble strong{color:#e01f2f}
 .js:not(.settled) .sensei-pic{animation-play-state:paused}
 @media (prefers-reduced-motion:reduce){.sensei-pic{animation:none!important}}
+.photo-tip{display:flex;flex-direction:column;gap:6px;padding:10px 10px 14px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.pt-shot{position:relative;border-radius:10px;overflow:hidden;margin-bottom:6px;box-shadow:0 8px 18px rgba(0,0,0,.35)}
+.pt-shot img{display:block;width:100%;height:auto}
+.pt-ring{position:absolute;left:74.6%;top:34.5%;width:clamp(26px,9vw,40px);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);
+  border:2.5px solid var(--red);box-shadow:0 0 0 3px rgba(255,46,62,.25),0 0 14px rgba(255,46,62,.6);animation:ptPulse 1.6s ease-out infinite}
+@keyframes ptPulse{0%{box-shadow:0 0 0 0 rgba(255,46,62,.55),0 0 14px rgba(255,46,62,.6)}80%,100%{box-shadow:0 0 0 12px rgba(255,46,62,0),0 0 14px rgba(255,46,62,.6)}}
+.photo-tip b{padding:0 4px;font-size:16px;font-weight:900}
+.photo-tip p{margin:0;padding:0 4px;font-size:13.5px;color:var(--muted)}
+.js:not(.settled) .pt-ring{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.pt-ring{animation:none!important}}
 footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase}
 
 @media (prefers-reduced-motion:reduce){.prod,.ticket,.tuto-img{animation:none!important}.intro{display:none}.js .rise{opacity:1;transform:none}.feature::before,.socials a,.socials a svg{animation:none!important}*{transition:none!important}}
@@ -416,6 +426,18 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
       <span class="s-txt"><small data-text-clarckirl="My code">Mon code</small><b>Clarck</b><em data-text-clarckirl="-30% shipping · monthly">-30% livraison · /mois</em><i class="s-note" data-text-clarckirl="For sign-ups via my link">Pour les inscrits via mon lien</i></span>
       <span class="cbtn"><svg class="cp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg><svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
     </button>
+    </div>
+  </section>
+
+  <section class="rise d5">
+    <h2 data-html-clarckirl="&lt;i&gt;&lt;/i&gt;Tip"><i></i>Astuce</h2>
+    <div class="photo-tip">
+      <div class="pt-shot">
+        <img src="assets/recherche-photo.webp" alt="Barre de recherche LoveGoBuy, icône appareil photo entourée" width="630" height="123" loading="lazy">
+        <span class="pt-ring" aria-hidden="true"></span>
+      </div>
+      <b data-text-clarckirl="Find items with a photo">Trouve un article avec une photo</b>
+      <p data-text-clarckirl="On LoveGoBuy, tap the camera 📷 in the search bar and upload a screenshot: it shows you similar products.">Sur LoveGoBuy, appuie sur l'appareil photo 📷 dans la barre de recherche et envoie une capture : il te montre les produits qui ressemblent.</p>
     </div>
   </section>
 
