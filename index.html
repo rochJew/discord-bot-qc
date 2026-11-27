@@ -278,12 +278,41 @@ h2 i{width:8px;height:8px;border:1.5px solid var(--red);transform:rotate(45deg);
 .sticker .s-note{font-style:normal;font-size:8.5px;font-weight:500;color:#7a4a12;margin-top:3px}
 .sticker .cbtn{width:30px;height:30px;border-radius:50%}
 @media (max-width:379px){.sticker{top:-46px;padding:6px 7px 6px 11px;gap:8px}.sticker b{font-size:18px}.sticker em{font-size:9.5px}.sticker .cbtn{width:26px;height:26px}}
+.welcome{position:relative;display:flex;flex-direction:column;gap:4px;padding:14px 16px 14px 18px;border-radius:16px;background:var(--card);border:1px solid rgba(255,46,62,.45);
+  box-shadow:0 0 0 6px rgba(255,46,62,.05);overflow:hidden}
+.welcome::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--red);box-shadow:0 0 12px var(--red)}
+.welcome small{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#ff8a93}
+.welcome b{font-size:17px;font-weight:900}
+.welcome p{margin:0;font-size:13px;color:var(--muted)}
 footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase}
 
 @media (prefers-reduced-motion:reduce){.prod,.ticket,.tuto-img{animation:none!important}.intro{display:none}.js .rise{opacity:1;transform:none}.feature::before,.socials a,.socials a svg{animation:none!important}*{transition:none!important}}
 </style>
 
-<script defer src="https://cloud.umami.is/script.js" data-website-id="0dbabc26-fbaa-4648-9d36-1cbf47fa7976"></script>
+<script>
+/* ===== Liens spéciaux =====
+   Un lien avec ?utm_content=<nom> (nom présent dans VARIANTES) :
+   - change l'affichage : blocs data-only="<nom>" affichés, blocs data-hide="<nom>" retirés,
+     textes data-text-<nom>="..." remplacés ;
+   - est suivi à part dans Umami : UTM « content », tag Umami et propriété « variante » sur chaque clic.
+   Le choix est gardé pendant toute la visite (y compris page Boutiques et retour). */
+(function(){
+  var VARIANTES=['compte2'];
+  var v=null;
+  try{
+    var q=new URLSearchParams(location.search).get('utm_content');
+    if(q&&VARIANTES.indexOf(q)>-1){v=q;sessionStorage.setItem('variante',v)}
+    else{v=sessionStorage.getItem('variante')}
+  }catch(e){}
+  if(v&&VARIANTES.indexOf(v)<0)v=null;
+  window.VARIANTE=v;
+  if(v)document.documentElement.setAttribute('data-variante',v);
+  var s=document.createElement('script');s.defer=true;s.src='https://cloud.umami.is/script.js';
+  s.setAttribute('data-website-id','0dbabc26-fbaa-4648-9d36-1cbf47fa7976');
+  if(v)s.setAttribute('data-tag',v);
+  document.head.appendChild(s);
+})();
+</script>
 </head>
 <body>
 <div class="sky" aria-hidden="true">
@@ -326,6 +355,15 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
       </nav>
     </div>
   </header>
+
+  <!-- Bloc visible uniquement avec le lien spécial ?utm_content=compte2 (exemple à personnaliser) -->
+  <section class="rise d4" data-only="compte2" style="margin-bottom:18px" hidden>
+    <div class="welcome">
+      <small>Bienvenue</small>
+      <b>Tu viens de mon 2e compte TikTok ?</b>
+      <p>Texte d'exemple : ici on peut mettre un message, un lien ou une vidéo réservés à ce compte.</p>
+    </div>
+  </section>
 
   <section class="rise d4">
     <h2><i></i>Mon agent</h2>
@@ -423,6 +461,16 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
       if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(code).then(done,function(){fallback(code);done()})}else{fallback(code);done()}
     });
   });
+})();
+</script>
+<script>
+(function(){
+  var v=window.VARIANTE;
+  function has(list){return v&&(' '+list+' ').indexOf(' '+v+' ')>-1}
+  document.querySelectorAll('[data-only]').forEach(function(el){if(has(el.getAttribute('data-only')))el.hidden=false;else el.remove()});
+  document.querySelectorAll('[data-hide]').forEach(function(el){if(has(el.getAttribute('data-hide')))el.remove()});
+  if(v)document.querySelectorAll('[data-text-'+v+']').forEach(function(el){el.textContent=el.getAttribute('data-text-'+v)});
+  document.querySelectorAll('[data-umami-event]').forEach(function(el){el.setAttribute('data-umami-event-variante',v||'normal')});
 })();
 </script>
 </body>

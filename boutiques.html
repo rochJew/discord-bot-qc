@@ -93,7 +93,30 @@ h2 i{width:8px;height:8px;border:1.5px solid var(--red);transform:rotate(45deg);
 footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
-<script defer src="https://cloud.umami.is/script.js" data-website-id="0dbabc26-fbaa-4648-9d36-1cbf47fa7976"></script>
+<script>
+/* ===== Liens spéciaux =====
+   Un lien avec ?utm_content=<nom> (nom présent dans VARIANTES) :
+   - change l'affichage : blocs data-only="<nom>" affichés, blocs data-hide="<nom>" retirés,
+     textes data-text-<nom>="..." remplacés ;
+   - est suivi à part dans Umami : UTM « content », tag Umami et propriété « variante » sur chaque clic.
+   Le choix est gardé pendant toute la visite (y compris page Boutiques et retour). */
+(function(){
+  var VARIANTES=['compte2'];
+  var v=null;
+  try{
+    var q=new URLSearchParams(location.search).get('utm_content');
+    if(q&&VARIANTES.indexOf(q)>-1){v=q;sessionStorage.setItem('variante',v)}
+    else{v=sessionStorage.getItem('variante')}
+  }catch(e){}
+  if(v&&VARIANTES.indexOf(v)<0)v=null;
+  window.VARIANTE=v;
+  if(v)document.documentElement.setAttribute('data-variante',v);
+  var s=document.createElement('script');s.defer=true;s.src='https://cloud.umami.is/script.js';
+  s.setAttribute('data-website-id','0dbabc26-fbaa-4648-9d36-1cbf47fa7976');
+  if(v)s.setAttribute('data-tag',v);
+  document.head.appendChild(s);
+})();
+</script>
 </head>
 <body>
 <div class="sky" aria-hidden="true"></div>
@@ -170,6 +193,16 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
 (function(){var b=document.getElementById('back');b.addEventListener('click',function(e){
   try{if(document.referrer&&new URL(document.referrer).origin===location.origin&&history.length>1){e.preventDefault();history.back()}}catch(err){}
 })})();
+</script>
+<script>
+(function(){
+  var v=window.VARIANTE;
+  function has(list){return v&&(' '+list+' ').indexOf(' '+v+' ')>-1}
+  document.querySelectorAll('[data-only]').forEach(function(el){if(has(el.getAttribute('data-only')))el.hidden=false;else el.remove()});
+  document.querySelectorAll('[data-hide]').forEach(function(el){if(has(el.getAttribute('data-hide')))el.remove()});
+  if(v)document.querySelectorAll('[data-text-'+v+']').forEach(function(el){el.textContent=el.getAttribute('data-text-'+v)});
+  document.querySelectorAll('[data-umami-event]').forEach(function(el){el.setAttribute('data-umami-event-variante',v||'normal')});
+})();
 </script>
 </body>
 </html>
