@@ -90,6 +90,7 @@ h2 i{width:8px;height:8px;border:1.5px solid var(--red);transform:rotate(45deg);
 .shop-go svg{width:14px;height:14px;transition:transform .2s}
 .shop:hover .shop-go svg{transform:translateX(3px)}
 
+html[data-variante="clarckirl"] .shop-logo::after{content:"Official"}
 footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -111,6 +112,7 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
   if(v&&VARIANTES.indexOf(v)<0)v=null;
   window.VARIANTE=v;
   if(v)document.documentElement.setAttribute('data-variante',v);
+  var LANGUE={clarckirl:'en'};if(v&&LANGUE[v])document.documentElement.lang=LANGUE[v];
   var s=document.createElement('script');s.defer=true;s.src='https://cloud.umami.is/script.js';
   s.setAttribute('data-website-id','0dbabc26-fbaa-4648-9d36-1cbf47fa7976');
   if(v)s.setAttribute('data-tag',v);
@@ -122,46 +124,46 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
 <div class="sky" aria-hidden="true"></div>
 <div class="wrap">
   <nav class="top">
-    <a class="back" id="back" href="index.html" data-umami-event="Retour accueil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11 6l-6 6 6 6"/></svg>Retour</a>
-    <span class="collab">Collaboration<br>commerciale</span>
+    <a class="back" id="back" href="index.html" data-umami-event="Retour accueil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M11 6l-6 6 6 6"/></svg><span data-text-clarckirl="Back">Retour</span></a>
+    <span class="collab" data-html-clarckirl="Paid&lt;br&gt;partnership">Collaboration<br>commerciale</span>
   </nav>
 
   <header class="head">
-    <small data-text-clarckirl="Vêtements · via mon agent LoveGoBuy">Via mon agent LoveGoBuy</small>
-    <h1>Mes boutiques authentiques</h1>
+    <small data-text-clarckirl="Clothing · via my agent LoveGoBuy">Via mon agent LoveGoBuy</small>
+    <h1 data-text-clarckirl="My official stores">Mes boutiques authentiques</h1>
   </header>
 
   <aside class="sensei" aria-label="Conseil de Sensei">
     <!-- Emplacement du personnage Sensei : remplacer assets/sensei.webp par la nouvelle illustration -->
     <img class="sensei-pic" src="assets/sensei.webp" alt="Sensei" width="480" height="622">
-    <div class="bubble">
+    <div class="bubble" data-html-clarckirl="&lt;b&gt;Sensei&amp;#39;s tip&lt;/b&gt;&lt;p&gt;Each card opens one product from the brand. To see &lt;strong&gt;the whole store&lt;/strong&gt;, scroll down on LoveGoBuy and tap the &lt;strong&gt;store name&lt;/strong&gt;.&lt;/p&gt;">
       <b>Le conseil de Sensei</b>
       <p>Chaque carte t'ouvre un produit de la marque. Pour voir <strong>toute la boutique</strong>, descends sur la page LoveGoBuy et clique sur le <strong>nom de la boutique</strong>.</p>
     </div>
   </aside>
 
   <section class="group">
-    <h2><i></i>Mode &amp; sport</h2>
+    <h2 data-html-clarckirl="&lt;i&gt;&lt;/i&gt;Clothing &amp;amp; sport"><i></i>Mode &amp; sport</h2>
     <div class="shops-grid">
       <a class="shop" style="--i:0" href="https://www.lovegobuy.com/product?id=1033381450546&amp;shop_type=taobao&amp;invite_code=U55333" target="_blank" rel="noopener" data-umami-event="Boutique H&amp;M">
         <span class="shop-logo"><svg class="mark" viewBox="0 0 24 24" fill="#E50010" role="img" aria-label="Logo H&amp;M"><path d="M16.866 4.565c.871-.429 1.303-.372 1.313.061.012.565-.071 1.313-.131 1.857-.323 2.947-.864 5.356-.906 8.383 1.424-3.686 2.619-6.248 4.156-9.403.488-1.004.799-.818 1.2-.996 1.563-.695 1.622-.268 1.417.581-.758 3.15-2.695 13.068-2.992 14.595-.086.442-.566.255-.691.082-.556-.769-1.183-.781-1.112-1.293.348-2.546 1.603-8.934 1.93-10.439-1.669 3.42-3.398 7.694-4.286 10.118-.189.515-.531.477-.745.1-.3-.529-.883-.799-.979-1.424-.306-1.987.348-5.776.439-8.172-.908 2.618-2.433 7.701-3.101 9.997-.276.95-1.193.795-.949-.131 1.015-3.854 3.201-10.67 4.148-13.121.222-.576.805-.556 1.289-.795Zm-5.535-.474c.276.067.254.393.085.838-.499 1.314-1.19 3.04-1.981 5.076.497-.057.767-.076.767-.076.713-.088.846.269.645.648-.16.303-.353.101-1.02 1.096-.376.561-.99.709-1.332.784-.821 2.175-1.702 4.602-2.557 7.188-.125.377-.489.295-.598.142-.402-.562-.698-.58-1.01-1.034-.037-.074-.11-.173-.066-.354.229-.936.837-2.859 1.762-5.392-1.165.253-2.426.524-2.947.645-.624 1.651-1.234 3.308-1.811 4.944-.358 1.015-1.29.819-.963-.141.521-1.528 1.096-3.115 1.673-4.654-.646-.069-.864-.525-1.225-.906-.139-.147-.443-.126-.592-.332-.267-.371-.241-.536.377-.714.806-.233 1.617-.449 2.432-.649 1.044-2.694 1.987-5.006 2.49-6.239.388-.951 1.387-.862 1.008.075-.772 1.906-1.563 3.885-2.344 5.893.963-.217 1.931-.409 2.904-.576.713-1.831 1.462-3.648 2.247-5.449.055-.126.215-.304.381-.332.525-.09 1.379-.552 1.675-.481ZM9.543 16.426c.082-.05.163-.111.244-.178-.062-.183-.123-.366-.183-.55-.061.078-.12.157-.179.237-.349.479-.142.65.118.491Zm.465-2.275c.433-.489-.423-.693-.226.054.011.042.025.092.04.146.063-.065.125-.132.186-.2Zm.45 1.473c.429-.372.838-.003.414.624a6.955 6.955 0 0 1-.307.424c.045.128.091.255.14.381.219.562-.357.703-.542.237a7.29 7.29 0 0 1-.05-.129c-.35.31-.754.505-1.186.37-.711-.221-.892-1.222-.228-1.993.266-.309.466-.524.634-.695-.041-.133-.081-.267-.118-.401-.087-.312-.164-.675.148-1.046.586-.695 1.945-.078 1.257.992-.165.258-.359.501-.561.748.07.221.14.441.212.661.061-.06.123-.117.187-.173Z"/></svg></span>
-        <span class="shop-info"><b>H&amp;M</b><small>Mode</small></span>
-        <span class="shop-go">Voir sur LoveGoBuy<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        <span class="shop-info"><b>H&amp;M</b><small data-text-clarckirl="Fashion">Mode</small></span>
+        <span class="shop-go"><span data-text-clarckirl="View on LoveGoBuy">Voir sur LoveGoBuy</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </a>
       <a class="shop" style="--i:1" href="https://www.lovegobuy.com/product?id=982151416962&amp;shop_type=taobao&amp;invite_code=U55333" target="_blank" rel="noopener" data-umami-event="Boutique PUMA">
         <span class="shop-logo"><svg class="mark" viewBox="0 0 24 24" fill="#242B2F" role="img" aria-label="Logo PUMA"><path d="M23.845 3.008c-.417-.533-1.146-.106-1.467.08-2.284 1.346-2.621 3.716-3.417 5.077-.626 1.09-1.652 1.89-2.58 1.952-.686.049-1.43-.084-2.168-.405-1.807-.781-2.78-1.792-3.017-1.97-.487-.37-4.23-4.015-7.28-4.164 0 0-.372-.75-.465-.763-.222-.025-.45.451-.616.501-.15.053-.413-.512-.565-.487-.153.02-.302.586-.6.877-.22.213-.486.2-.637.463-.052.096-.034.265-.093.42-.127.32-.551.354-.555.697 0 .381.357.454.669.72.248.212.265.362.554.461.258.088.632-.187.964-.088.277.081.543.14.602.423.054.256 0 .658-.34.613-.112-.015-.598-.174-1.198-.11-.725.077-1.553.309-1.634 1.11-.041.447.514.97 1.055.866.371-.071.196-.506.399-.716.267-.27 1.772.944 3.172.944.593 0 1.031-.15 1.467-.605.04-.029.093-.102.155-.11a.632.632 0 01.195.088c1.131.897 1.984 2.7 6.13 2.721.582.007 1.25.279 1.796.777.48.433.764 1.125 1.037 1.825.418 1.053 1.161 2.069 2.292 3.203.06.068.99.78 1.06.833.012.01.084.167.053.255-.02.69-.123 2.67 1.365 2.753.366.02.275-.231.275-.41-.005-.341-.065-.685.113-1.04.253-.478-.526-.709-.509-1.756.019-.784-.645-.651-.984-1.25-.19-.343-.368-.532-.35-.946.073-2.38-.517-3.948-.805-4.327-.227-.294-.423-.403-.207-.54 1.24-.815 1.525-1.574 1.525-1.574.66-1.541 1.256-2.945 2.075-3.57.166-.12.589-.44.852-.56.763-.362 1.173-.578 1.388-.788.356-.337.635-1.053.294-1.48z"/></svg></span>
-        <span class="shop-info"><b>PUMA</b><small>Sport</small></span>
-        <span class="shop-go">Voir sur LoveGoBuy<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        <span class="shop-info"><b>PUMA</b><small data-text-clarckirl="Sport">Sport</small></span>
+        <span class="shop-go"><span data-text-clarckirl="View on LoveGoBuy">Voir sur LoveGoBuy</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </a>
       <a class="shop" style="--i:2" href="https://www.lovegobuy.com/product?id=1056129868241&amp;shop_type=taobao&amp;invite_code=U55333" target="_blank" rel="noopener" data-umami-event="Boutique Saucony">
         <span class="shop-logo"><span class="word sauc" style="color:#1b2a4a" role="img" aria-label="Logo Saucony">saucony</span></span>
-        <span class="shop-info"><b>Saucony</b><small>Running</small></span>
-        <span class="shop-go">Voir sur LoveGoBuy<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        <span class="shop-info"><b>Saucony</b><small data-text-clarckirl="Running">Running</small></span>
+        <span class="shop-go"><span data-text-clarckirl="View on LoveGoBuy">Voir sur LoveGoBuy</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </a>
       <a class="shop" style="--i:3" href="https://www.lovegobuy.com/product?id=1054862405940&amp;shop_type=taobao&amp;invite_code=U55333" target="_blank" rel="noopener" data-umami-event="Boutique Intersport">
         <span class="shop-logo"><span class="word inter" style="color:#0b3a8c" role="img" aria-label="Logo Intersport">INTERSPORT</span></span>
-        <span class="shop-info"><b>Intersport</b><small>Sport</small></span>
-        <span class="shop-go">Voir sur LoveGoBuy<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        <span class="shop-info"><b>Intersport</b><small data-text-clarckirl="Sport">Sport</small></span>
+        <span class="shop-go"><span data-text-clarckirl="View on LoveGoBuy">Voir sur LoveGoBuy</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </a>
     </div>
   </section>
@@ -170,18 +172,18 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
     <div class="shops-grid">
       <a class="shop" style="--i:4" href="https://www.lovegobuy.com/product?id=1024323151119&amp;shop_type=taobao&amp;invite_code=U55333" target="_blank" rel="noopener" data-umami-event="Boutique HUAWEI">
         <span class="shop-logo"><svg class="mark" viewBox="0 0 24 24" fill="#FF0000" role="img" aria-label="Logo HUAWEI"><path d="M3.67 6.14S1.82 7.91 1.72 9.78v.35c.08 1.51 1.22 2.4 1.22 2.4 1.83 1.79 6.26 4.04 7.3 4.55 0 0 .06.03.1-.01l.02-.04v-.04C7.52 10.8 3.67 6.14 3.67 6.14zM9.65 18.6c-.02-.08-.1-.08-.1-.08l-7.38.26c.8 1.43 2.15 2.53 3.56 2.2.96-.25 3.16-1.78 3.88-2.3.06-.05.04-.09.04-.09zm.08-.78C6.49 15.63.21 12.28.21 12.28c-.15.46-.2.9-.21 1.3v.07c0 1.07.4 1.82.4 1.82.8 1.69 2.34 2.2 2.34 2.2.7.3 1.4.31 1.4.31.12.02 4.4 0 5.54 0 .05 0 .08-.05.08-.05v-.06c0-.03-.03-.05-.03-.05zM9.06 3.19a3.42 3.42 0 00-2.57 3.15v.41c.03.6.16 1.05.16 1.05.66 2.9 3.86 7.65 4.55 8.65.05.05.1.03.1.03a.1.1 0 00.06-.1c1.06-10.6-1.11-13.42-1.11-13.42-.32.02-1.19.23-1.19.23zm8.299 2.27s-.49-1.8-2.44-2.28c0 0-.57-.14-1.17-.22 0 0-2.18 2.81-1.12 13.43.01.07.06.08.06.08.07.03.1-.03.1-.03.72-1.03 3.9-5.76 4.55-8.64 0 0 .36-1.4.02-2.34zm-2.92 13.07s-.07 0-.09.05c0 0-.01.07.03.1.7.51 2.85 2 3.88 2.3 0 0 .16.05.43.06h.14c.69-.02 1.9-.37 3-2.26l-7.4-.25zm7.83-8.41c.14-2.06-1.94-3.97-1.94-3.98 0 0-3.85 4.66-6.67 10.8 0 0-.03.08.02.13l.04.01h.06c1.06-.53 5.46-2.77 7.28-4.54 0 0 1.15-.93 1.21-2.42zm1.52 2.14s-6.28 3.37-9.52 5.55c0 0-.05.04-.03.11 0 0 .03.06.07.06 1.16 0 5.56 0 5.67-.02 0 0 .57-.02 1.27-.29 0 0 1.56-.5 2.37-2.27 0 0 .73-1.45.17-3.14z"/></svg></span>
-        <span class="shop-info"><b>HUAWEI</b><small>Smartphones &amp; montres</small></span>
-        <span class="shop-go">Voir sur LoveGoBuy<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        <span class="shop-info"><b>HUAWEI</b><small data-text-clarckirl="Smartphones & montres">Smartphones &amp; montres</small></span>
+        <span class="shop-go"><span data-text-clarckirl="View on LoveGoBuy">Voir sur LoveGoBuy</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </a>
       <a class="shop" style="--i:5" href="https://www.lovegobuy.com/product?id=1081105334969&amp;shop_type=taobao&amp;invite_code=U55333" target="_blank" rel="noopener" data-umami-event="Boutique HONOR">
         <span class="shop-logo"><svg class="mark wide" viewBox="0 0 24 24" fill="#111111" role="img" aria-label="Logo HONOR"><path d="M2.601 9.753v1.823H.807V9.753H0v4.498h.807v-1.874h1.794v1.874h.807V9.753h-.807Zm18.671.801h.898c.369 0 .667.297.667.662a.665.665 0 0 1-.667.663h-.898v-1.325Zm-.806-.801v4.498h.806v-2.002l1.68 2.002H24l-1.376-1.64a1.462 1.462 0 0 0-.444-2.858h-1.716.002Zm-7.63-.014v2.807l-1.959-2.807h-.644v4.498h.807v-2.82l1.968 2.82h.633V9.739h-.805Zm-7.532 2.26c0-.832.68-1.506 1.517-1.506A1.51 1.51 0 0 1 8.337 12c0 .832-.679 1.506-1.516 1.506-.403 0-.789-.159-1.073-.441A1.504 1.504 0 0 1 5.304 12v-.001ZM4.497 12c0 .933.566 1.774 1.434 2.132.869.357 1.868.16 2.533-.5.664-.66.863-1.653.503-2.515a2.324 2.324 0 0 0-2.146-1.425 2.316 2.316 0 0 0-2.323 2.307L4.497 12Zm11.04-.001a1.513 1.513 0 0 1 1.518-1.506c.838 0 1.516.675 1.516 1.507a1.513 1.513 0 0 1-1.518 1.506c-.402 0-.788-.159-1.072-.441a1.5 1.5 0 0 1-.444-1.066ZM14.73 12c0 .933.566 1.774 1.434 2.132.868.357 1.868.16 2.532-.5.665-.66.864-1.653.504-2.515a2.325 2.325 0 0 0-2.147-1.425 2.316 2.316 0 0 0-2.323 2.307V12Z"/></svg></span>
-        <span class="shop-info"><b>HONOR</b><small>Smartphones</small></span>
-        <span class="shop-go">Voir sur LoveGoBuy<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        <span class="shop-info"><b>HONOR</b><small data-text-clarckirl="Smartphones">Smartphones</small></span>
+        <span class="shop-go"><span data-text-clarckirl="View on LoveGoBuy">Voir sur LoveGoBuy</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </a>
       <a class="shop" style="--i:6" href="https://www.lovegobuy.com/product?id=979632901050&amp;shop_type=taobao&amp;invite_code=U55333" target="_blank" rel="noopener" data-umami-event="Boutique DJI">
         <span class="shop-logo"><svg class="mark" viewBox="0 0 24 24" fill="#111111" role="img" aria-label="Logo DJI"><path d="M19.2 7.8a716.856 716.856 0 0 0-1.232 4.63c-.202.772-.401 1.544-.634 2.308-.226.743-.504 1.535-.91 2.21-.422.703-.969 1.253-1.726 1.604-.3.137-.615.24-.939.306-.46.09-.926.146-1.394.165-1.163.065-3.628.056-4.79.056l.713-2.64c.539 0 1.078.002 1.617-.013.52-.014 1.092-.042 1.605-.163.56-.133.984-.36 1.355-.817.337-.416.564-.935.75-1.424.34-.893.688-2.173.934-3.093.277-1.041.544-2.085.812-3.129zm4.8 0-2.072 7.68h-3.84l2.073-7.68ZM11.339 4.92h3.84c-.403 1.5-.805 2.999-1.212 4.496-.283 1.044-.565 2.088-.872 3.124-.135.452-.269.903-.445 1.342-.141.352-.3.666-.591.93a1.908 1.908 0 0 1-.734.405c-.356.112-.717.154-1.085.184-.53.043-1.06.054-1.591.063-1.991.02-3.983.02-5.974-.001a21.408 21.408 0 0 1-.954-.034 5.319 5.319 0 0 1-.632-.07 1.851 1.851 0 0 1-.412-.119c-.44-.192-.664-.575-.677-1.043 0-.263.032-.525.093-.78.076-.367.171-.728.265-1.09.179-.691.506-1.966.762-2.638.2-.526.464-1.05.966-1.382.28-.186.576-.285.901-.35.241-.05.483-.075.728-.093.41-.03.82-.04 1.23-.047.582-.01 1.165-.013 1.748-.015L8.148 7.8h1.454l-.518 1.92c-.864 0-1.728-.002-2.593.003-.252.001-.504 0-.756.016a.968.968 0 0 0-.264.042c-.113.04-.17.11-.22.213-.073.15-.115.31-.162.468a84.804 84.804 0 0 0-.503 1.857c-.035.14-.07.28-.1.42-.022.099-.04.197-.05.298-.01.11-.014.242.053.345.068.103.182.127.29.143.12.018.241.021.363.025.199.006.398.007.597.008.544.003 1.089.003 1.633 0 .25-.002.501-.004.752-.014.173-.007.343-.013.513-.054.13-.031.23-.08.318-.186.056-.071.1-.15.133-.235.088-.209.15-.425.213-.641.245-.83.466-1.665.692-2.499l.675-2.503.67-2.505h3.84z"/></svg></span>
-        <span class="shop-info"><b>DJI</b><small>Drones &amp; caméras</small></span>
-        <span class="shop-go">Voir sur LoveGoBuy<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        <span class="shop-info"><b>DJI</b><small data-text-clarckirl="Drones & caméras">Drones &amp; caméras</small></span>
+        <span class="shop-go"><span data-text-clarckirl="View on LoveGoBuy">Voir sur LoveGoBuy</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </a>
     </div>
   </section>
@@ -201,6 +203,7 @@ footer{text-align:center;color:var(--muted);font-size:11px;font-family:var(--mon
   document.querySelectorAll('[data-only]').forEach(function(el){if(has(el.getAttribute('data-only')))el.hidden=false;else el.remove()});
   document.querySelectorAll('[data-hide]').forEach(function(el){if(has(el.getAttribute('data-hide')))el.remove()});
   if(v)document.querySelectorAll('[data-text-'+v+']').forEach(function(el){el.textContent=el.getAttribute('data-text-'+v)});
+  if(v)document.querySelectorAll('[data-html-'+v+']').forEach(function(el){el.innerHTML=el.getAttribute('data-html-'+v)});
   document.querySelectorAll('[data-umami-event]').forEach(function(el){el.setAttribute('data-umami-event-variante',v||'normal')});
 })();
 </script>
